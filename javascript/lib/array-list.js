@@ -21,6 +21,10 @@ ArrayList.prototype.get = function(index) {
 // append the argument to the end of this ArrayList and increase the size by
 // 1. The return value must be this.
 
+ArrayList.prototype.add = function(index) {
+
+};
+
 // Define a method "prepend" which takes a single argument. This method should
 // prepend the argument to the beginning of this ArrayList and increase the size
 // by 1. The return value must be this.
@@ -64,6 +68,20 @@ ArrayList.prototype._checkUpperBound = function(index) {
     if (index >= this.size()) {
         throw new IndexError("Invalid index: " + index);
     }
+};
+
+ArrayList.prototype._expandList = function(shift = 0) {
+    if (this._array.size() == this.size()) {
+        const newSize = this._array.size() * 2;
+        const tempArray = new FixedArray(newSize);
+        for (let i = 0; i < this._array.size(); i++) {
+            tempArray.set(i + shift, this._array.get(i));
+        }
+        this._array = tempArray;
+    } else if (shift > 0) {
+        for (let i = 0; i < this._array.size(); i++)
+    }
+
 };
 
 module.exports = ArrayList;

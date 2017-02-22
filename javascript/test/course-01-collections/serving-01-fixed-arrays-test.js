@@ -44,8 +44,8 @@ test("initial values are null", function() {
 
 test("getting and setting at an index must be within the bounds of the initial size", function() {
     var array = new FixedArray(5);
-    assert.throws(() => { array.get(-1); }, ___);
-    assert.throws(() => { array.get(5); }, ___);
-    assert.throws(() => { array.set(-1, 1); }, ___);
-    assert.throws(() => { array.set(5, 42); }, ___);
+    assert.throws(() => { array.get(-1); }, IndexError);
+    assert.throws(() => { array.get(5); }, IndexError);
+    assert.throws(() => { array.set(-1, 1); }, IndexError);
+    assert.throws(() => { array.set(5, 42); }, IndexError);
 });
