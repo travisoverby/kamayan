@@ -21,11 +21,13 @@ public class ArrayList {
     }
 
     public ArrayList add(Object value) {
-        throw Kamayan.todo(
-            "The add(Object) method should append the argument to the end of",
-            "this ArrayList and increase the size by 1. The return value must",
-            "be this."
-        );
+        // throw Kamayan.todo(
+        //     "The add(Object) method should append the argument to the end of",
+        //     "this ArrayList and increase the size by 1. The return value must",
+        //     "be this."
+        // );
+        array[size++] = value;
+        return this;
     }
 
     public ArrayList prepend(Object value) {

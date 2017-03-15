@@ -21,8 +21,10 @@ ArrayList.prototype.get = function(index) {
 // append the argument to the end of this ArrayList and increase the size by
 // 1. The return value must be this.
 
-ArrayList.prototype.add = function(index) {
-
+ArrayList.prototype.add = function(element) {
+    this._expandList();
+    this._array.set(this._size++, element);
+    return this;
 };
 
 // Define a method "prepend" which takes a single argument. This method should
@@ -78,10 +80,7 @@ ArrayList.prototype._expandList = function(shift = 0) {
             tempArray.set(i + shift, this._array.get(i));
         }
         this._array = tempArray;
-    } else if (shift > 0) {
-        for (let i = 0; i < this._array.size(); i++)
     }
-
 };
 
 module.exports = ArrayList;
